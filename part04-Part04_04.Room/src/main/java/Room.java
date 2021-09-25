@@ -8,13 +8,12 @@
  *
  * @author Duncan
  */
-public class Dog {
-    private String name;
-    private String breed;
-    private int age;
+public class Room {
+    private String code;
+    private int seats;
     
-    public Dog(String initialName){
-        this.age = 0;
-        this.name = initialName;
+    public Room(String classCode, int numberOfSeats){
+        this.code = classCode;
+        this.seats = numberOfSeats;
     }
 }
