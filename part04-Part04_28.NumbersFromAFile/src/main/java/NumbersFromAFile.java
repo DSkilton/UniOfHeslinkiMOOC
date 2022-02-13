@@ -4,37 +4,46 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NumbersFromAFile {
+    private static ArrayList<String> list = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+    private static int lowerBound, upperBound;
+    private static int counter;
 
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        int counter = 0;
 
         System.out.print("File? ");
         String file = scanner.nextLine();
         System.out.print("Lower bound? ");
-        int lowerBound = Integer.valueOf(scanner.nextLine());
+        lowerBound = Integer.valueOf(scanner.nextLine());
         System.out.print("Upper bound? ");
-        int upperBound = Integer.valueOf(scanner.nextLine());
+        upperBound = Integer.valueOf(scanner.nextLine());
 
-        try ( Scanner reader = new Scanner(Paths.get(file))) {
-            while (reader.hasNextLine()) {
-                list.add(reader.nextLine());
+        checkForNumberInFile(readFile(file));
+        System.out.println("Numbers: " + counter);
+        
+    }
+
+    private static ArrayList<String> readFile(String file) {
+        try ( Scanner fileScan = new Scanner(Paths.get(file))) {
+            while (fileScan.hasNextLine()) {
+                list.add(fileScan.nextLine());
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+        return list;
+    }
 
+    private static void checkForNumberInFile(ArrayList<String> list) {
         for (String item : list) {
             int number = Integer.valueOf(item);
-            if (number >= lowerBound && number <= upperBound) {
-                counter += 1;
+            
+            if(number >= lowerBound && number <= upperBound){
+                counter++;
             } else {
                 continue;
             }
         }
 
-        System.out.println("Numbers: " + counter);
     }
-
 }
