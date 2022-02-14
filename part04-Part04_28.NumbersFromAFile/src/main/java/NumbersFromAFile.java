@@ -20,7 +20,6 @@ public class NumbersFromAFile {
 
         checkForNumberInFile(readFile(file));
         System.out.println("Numbers: " + counter);
-        
     }
 
     private static ArrayList<String> readFile(String file) {
@@ -37,13 +36,11 @@ public class NumbersFromAFile {
     private static void checkForNumberInFile(ArrayList<String> list) {
         for (String item : list) {
             int number = Integer.valueOf(item);
-            
             if(number >= lowerBound && number <= upperBound){
                 counter++;
             } else {
                 continue;
             }
         }
-
     }
 }
