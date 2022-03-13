@@ -1,4 +1,4 @@
-
+ 
 public class ClockHand {
 
     private int value;
