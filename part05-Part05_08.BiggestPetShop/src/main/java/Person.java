@@ -7,6 +7,7 @@ public class Person {
     public Person(String name, Pet pet) {
         this.name = name;
         this.pet = pet;
+        
     }
 
     public Person(String name) {
@@ -19,7 +20,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.name;
+        return this.name + ", has a friend called " + pet.getName() + " (" + pet.getBreed() + ")";
     }
 
 }
